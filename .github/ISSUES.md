@@ -42,4 +42,4 @@ Remember to take part in any discussions relating to your suggestions
 
 ### Questions
 
-You should direct your questions to the Slack. You should also read the included documentation and additional text files, e.g. [COMPILING.md](doc/COMPILING/COMPILING.md) if you have problems building.
+You should direct your questions to the Slack. You should also read the included documentation and additional text files, e.g. [Contributing.md](https://github.com/louvill/AAE535dPCalc/blob/master/CONTRIBUTING.md) if you have problems building.
