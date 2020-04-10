@@ -1,6 +1,6 @@
 # Contribute
 
-**Opening new issue?** Please read [ISSUES.md](../ISSUES.md) first.
+**Opening new issue?** Please read [ISSUES.md](/.github/ISSUES.md) first.
 
 Contributing to the The Pressure Drop Calculator is easy — simply fork the repository here on GitHub, make your changes, and then send us a pull request.
 
@@ -9,12 +9,17 @@ This means any contribution you make to the project will also be covered by the 
 
 ## Guidelines
 
-There are a couple of guidelines we suggest sticking to:
+For those of you new to github and .git in general here are few useful links for getting started!
 
-* Add this repository as an `upstream` remote.
-* Keep your `master` branch clean. This means you can easily pull changes made to this repository into yours.
-* Create a new branch for each new feature or set of related bug fixes.
-* Never merge from your local branches into your `master` branch. Only update that by pulling from `upstream/master`.
+[Quick Start for Setting up](https://help.github.com/en/github/getting-started-with-github/quickstart)<br>
+Basically, what is git and what is the reasons for using GitHub.
+
+[Committing Changes to Projects](https://help.github.com/en/github/committing-changes-to-your-project)<br>
+This also includes how to commit changes with multiple authors.
+
+
+[Managing Your Project](https://help.github.com/en/github/managing-your-work-on-github)<br>
+we will be using issues, milestones, and project boards for this program.
 
 ## Pull Request Notes
 If you file a PR but you're still working on it, please add a [WIP] before the title text. This will tell the reviewers that you still intend to add more to the PR and we don't need to review it yet. When it's ready to be reviewed by a merger just edit the title text to remove the [WIP].
