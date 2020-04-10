@@ -1,0 +1,7 @@
+SUBFUNCTIONS FOR MAIN.py
+
+This folder holds the subfunctions that MAIN.py calls to access the calculations and branching logic of this software.
+
+Fundamental alterations of the code should occur within /bin/. 
+Alterations to MAIN.py should only be done when attempting to alter
+the input/output relationship between the back end and the front end.
