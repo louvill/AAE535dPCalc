@@ -1,7 +1,10 @@
-LNE
-VLV
-ORF
-INJ
-BED
-BND
-SPL
+Line 		(LNE)
+Valve		(VLV)
+Orifice		(ORF)
+Injector	(INJ)
+Catalyst Bed	(CAT)
+Tube Bend	(BND)
+Tube Split	(SPL)
+Tube Join	(JON)
+Expansion	(EXP)
+Contraction	(CON)
