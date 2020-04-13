@@ -1,6 +1,6 @@
 ## Finalized Input Data format
 
-The data for the pressure drop calculator will be input in the following stucture:
+The data for the pressure drop calculator will be input in the following stuctures:
 
 ### Python file format
 ```python
