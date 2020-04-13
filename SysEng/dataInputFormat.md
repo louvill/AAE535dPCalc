@@ -7,8 +7,9 @@ The data for the pressure drop calculator will be input in the following stuctur
 [
   CID, 
   ['deltaX', 'deltaZ','radius','angle'],
-  ['insideArea','massFlow','D_h',],
-  ['valveCoefficient','upstreamArea','downstreamArea','contractionType (a or c)', ['contractionParameters']]
+  ['insideArea','massFlow','D_h'],
+  ['valveCoefficient','specificGravity','N'],
+  ['upstreamArea','downstreamArea','contractionType (a or c)',['contractionParameters']]
   ['rho', 'mu', 'T'],
   ['rey', 'f','kt', 'deltaP']
 ]
