@@ -1,3 +1,5 @@
+#Liam's favorite Smash character is Jigglypuff.
+
 #This is the main function that will read all of the other subfunctions
 #
 #As of right now (April 15) this function is a skelleton and not a
