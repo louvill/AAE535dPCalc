@@ -10,7 +10,7 @@
 cTypes = {
     #LINE DEFINITION
     'line': {
-      'CID' : CID,
+      'CID' : 'LNE',
       'geometry' : {
         'length' : 'deltaX',
         'height' : 'deltaZ',
@@ -36,9 +36,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : 'rey',
@@ -49,7 +49,7 @@ cTypes = {
     },
     #BEND DEFINITION
     'bend': {
-      'CID' : 'BND,
+      'CID' : 'BND',
       'geometry' : {
         'length' : 'deltaX',
         'height' : 'deltaZ',
@@ -75,9 +75,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : 'rey',
@@ -88,7 +88,7 @@ cTypes = {
     },
     #VALVE DEFINITION
     'valve': {
-      'CID' : 'VLV,
+      'CID' : 'VLV',
       'geometry' : {
         'length' : False,
         'height' : False,
@@ -114,9 +114,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = False,
-        'viscosity' = False,
-        'temperature' = False
+        'density' : False,
+        'viscosity' : False,
+        'temperature' : False
       },
       'calculated' : {
         'reynolds' : False,
@@ -153,9 +153,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : 'rey',
@@ -192,9 +192,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : 'rey',
@@ -205,7 +205,7 @@ cTypes = {
     },
     #SUDDEN EXPANSION DEFINITION
     'suddenExpansion' : {
-      'CID' : CID,
+      'CID' : 'EXP',
       'geometry' : {
         'length' : False,
         'height' : False,
@@ -231,9 +231,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : 'rey',
@@ -262,9 +262,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = 'rho',
-        'viscosity' = 'mu',
-        'temperature' = 'T'
+        'density' : 'rho',
+        'viscosity' : 'mu',
+        'temperature' : 'T'
       },
       'calculated' : {
         'reynolds' : False,
@@ -305,9 +305,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = False,
-        'viscosity' = False,
-        'temperature' = False
+        'density' : False,
+        'viscosity' : False,
+        'temperature' : False
       },
       'calculated' : {
         'reynolds' : False,
@@ -318,7 +318,7 @@ cTypes = {
     },
     #INJECTOR
     'injector' : {
-      'CID' : 'ORF',
+      'CID' : 'INJ',
       'geometry' : {
         'length' : False,
         'height' : False,
@@ -344,9 +344,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = False,
-        'viscosity' = False,
-        'temperature' = False
+        'density' : False,
+        'viscosity' : False,
+        'temperature' : False
       },
       'calculated' : {
         'reynolds' : False,
@@ -357,7 +357,7 @@ cTypes = {
     },
     #CATALYST BED
     'catalystBed' : {
-      'CID' : 'ORF',
+      'CID' : 'CAT',
       'geometry' : {
         'length' : False,
         'height' : False,
@@ -383,9 +383,9 @@ cTypes = {
         }
       },
       'fluidProperties' : {
-        'density' = False,
-        'viscosity' = False,
-        'temperature' = False
+        'density' : False,
+        'viscosity' : False,
+        'temperature' : False
       },
       'calculated' : {
         'reynolds' : False,
