@@ -4,6 +4,9 @@
 # This allows the loop to only require numbers that DON'T have
 # False as their value.
 
+#These dictionaries should be able to looped through by doing recursion.
+# see recursionExample.py in /bin/ for an example of this.
+
 cTypes = {
     #LINE DEFINITION
     'line': {
