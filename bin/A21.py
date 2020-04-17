@@ -1,5 +1,11 @@
 #Using the alternative method from Issue #7
-#def A21Func():
+#
+#This function will input the name of the component type and output a full
+# dictionary that can then be filled with values for the actual computation
+# of the pressure drop. The input can be in lower case, upper case, or a mixture
+# and the program should be able to find it. Alternative names are not programmed
+# in yet, so be careful with how you type things.
+#
 #Values that are not required for a component are set to False
 # This allows the loop to only require numbers that DON'T have
 # False as their value.
@@ -9,7 +15,7 @@
 
 cTypes = {
     #LINE DEFINITION
-    'line': {
+    'LINE': {
       'CID' : 'LNE',
       'geometry' : {
         'length' : 'deltaX',
@@ -48,7 +54,7 @@ cTypes = {
       }
     },
     #BEND DEFINITION
-    'bend': {
+    'BEND': {
       'CID' : 'BND',
       'geometry' : {
         'length' : 'deltaX',
@@ -87,7 +93,7 @@ cTypes = {
       }
     },
     #VALVE DEFINITION
-    'valve': {
+    'VALVE': {
       'CID' : 'VLV',
       'geometry' : {
         'length' : False,
@@ -126,7 +132,7 @@ cTypes = {
       }
     },
     #TUBE SPLIT DEFINITION
-    'tubeSplit' : {
+    'TUBESPLIT' : {
       'CID' : 'SPL',
       'geometry' : {
         'length' : False,
@@ -165,7 +171,7 @@ cTypes = {
       }
     },
     #TUBE JOIN DEFINITION
-    'tubeJoin' : {
+    'TUBEJOIN' : {
       'CID' : 'JON',
       'geometry' : {
         'length' : False,
@@ -204,7 +210,7 @@ cTypes = {
       }
     },
     #SUDDEN EXPANSION DEFINITION
-    'suddenExpansion' : {
+    'SUDDENEXPANSION' : {
       'CID' : 'EXP',
       'geometry' : {
         'length' : False,
@@ -243,7 +249,7 @@ cTypes = {
       }
     },
     #SUDDEN CONTRACTION DEFINITION
-    'suddenContraction' : {
+    'SUDDENCONTRACTION' : {
       'CID' : 'CON',
       'geometry' : False,
       'valve' : {
@@ -278,7 +284,7 @@ cTypes = {
     # They will (probably) not use the typical values herein.          #
     ####################################################################
     #ORIFICE
-    'orifice' : {
+    'ORIFICE' : {
       'CID' : 'ORF',
       'geometry' : {
         'length' : False,
@@ -317,7 +323,7 @@ cTypes = {
       }
     },
     #INJECTOR
-    'injector' : {
+    'INJECTOR' : {
       'CID' : 'INJ',
       'geometry' : {
         'length' : False,
@@ -356,7 +362,7 @@ cTypes = {
       }
     },
     #CATALYST BED
-    'catalystBed' : {
+    'CATALYSTBED' : {
       'CID' : 'CAT',
       'geometry' : {
         'length' : False,
@@ -395,3 +401,20 @@ cTypes = {
       }
     },
 }
+
+########################################
+# Now time for the function defintion  #
+########################################
+def A21(name):
+    upperName = str(name).upper()
+    try:
+        parameters = cTypes[upperName]
+    except KeyError:
+        raise KeyError("You have not input a valid component type. "+
+                   "Look at the documentation to see what names"+
+                   " have been assigned to which components.")
+    else:
+        return(parameters)
+
+#Example of this in use. Uncomment to see what happens and try some names out yourself
+#print(A21('line'))
