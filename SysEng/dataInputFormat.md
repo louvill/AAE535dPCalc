@@ -4,49 +4,85 @@ The data for the pressure drop calculator will be input in the following manner:
 
 ### Python file format
 ```python
-[
-  CID, 
-  ['deltaX', 'deltaZ','radius','angle'],
-  ['insideArea','massFlow','D_h'],
-  ['valveCoefficient','specificGravity','N'],
-  ['upstreamArea','downstreamArea','contractionType (a or c)',['contractionParameters']]
-  ['rho', 'mu', 'T'],
-  ['rey', 'f','kt', 'deltaP']
-]
+{
+  'CID' : CID,
+  'geometry' : {
+    'length' : deltaX,
+	'height' : deltaZ,
+	'insideArea' : Ainside,
+	'massFlow' : mDot,
+	'hydraulicDiameter' : Dh,
+	'bendRadius' : radius,
+	'bendAngle' : angle
+  },
+  'valve' : {
+    'valveCoefficient' : cValve,
+	'specificGravity' : rhoSpec,
+	'valveAuthority' : N,
+  },
+  'misc' : {
+    'upstreamArea' : upsteamArea,
+	'downstreamArea' : downstreamArea,
+	'contractionAngledOrCurved' : 'a or c',
+	'contractionParameters' : {
+	  'angle' : contractAngle,
+	  'downstreamDiameter' : contractDiam,
+	  'downstreamRadiusOfCurvature' : contractCurvRad
+    }
+  },
+  'fluidProperties' : {
+    'density' = rho,
+	'viscosity' = mu,
+	'temperature' = T
+  },
+  'calculated' : {
+    'reynolds' : rey,
+	'frictionFactor' : f,
+	'ktLosses' : kt,
+	'pressureDrop' : deltaP
+  }
+}
 ```
 
 ### .json/JavaScript file format
 ```javascript
 {
-  "componentID": CID,
-  "distanceValues": [
+  "CID": CID,
+  "geometry": [
     {
-      "lengthChange" : deltaX,
-      "altitudeChange" : deltaZ,
+      "length" : deltaX,
+      "height" : deltaZ,
+	  "insideArea" : Ainside,
+	  "massFlow" : mDot,
+	  "hydraulicDiameter" : Dh,
       "bendRadius" : radius,
       "bendAngle" : angle
     }
   ],
-  "miscInfo" : [
+  "valve" : {
+    "valveCoefficient" : cValve,
+	"specificGravity" : rhoSpec,
+	"valveAuthority" : N,
+  },
+  "misc" : [
     {
-      "valveCoefficient" : valveCoefficient,
       "contractExpandUpstream" : upsteamArea,
       "contractExpandDownstream" : downstreamArea,
-      "contractionAngledOrCurved" : expandType,
+      "contractionAngledOrCurved" : 'a or c',
       "contractionParameters" : [
         {
           "angle" : contractAngle,
-          "downstreamDiameter" : contractDiameter,
-          "downstreamRadiusOfCurvature" : contractRadius
+          "downstreamDiameter" : contractDiam,
+          "downstreamRadiusOfCurvature" : contractCurvRad
         }
       ]
     }
   ],
   "fluidProperties" : [
     {
-      "fluidDensity" : rho,
-      "fluidViscosity" : mu,
-      "fluidTemperature" : T
+      "density" : rho,
+      "viscosity" : mu,
+      "temperature" : T
     }
   ],
   "calculatedTerms" : [
@@ -54,7 +90,7 @@ The data for the pressure drop calculator will be input in the following manner:
       "reynoldsNumber" : rey,
       "frictionFactor" : f,
       "ktLosses" : kt,
-      "pressureLoss" : deltaP
+      "pressureDrop" : deltaP
     }
   ]
 }
