@@ -98,3 +98,25 @@ The data for the pressure drop calculator will be input in the following manner:
 ```
 
 As these components are input, they should be assigned a unique index identification number (IIN) that tells the program which step this is. A parent/child value should also be appended somewhere (look at [issue #7](https://github.com/louvill/AAE535dPCalc/issues/7) for more info)
+
+# .json output format
+This last section details how the file type will look when it is output by MAIN.py and sent back to electron to be presented to the user. The 'components' dictionary will output the pressure drop along every single component including their Index Identification Number (IIN) and the Component ID (CID). After all of the components have been output, the final value will be the total pressure drop of the system.
+
+```javascript
+{
+	"components" : [
+	  {
+	    "IIN" : IIN1,
+		"CID" : CID1,
+		"pressureDrop" : deltaP1
+	  },
+	  {
+	    "IIN" : IIN2,
+		"CID" : CID2,
+		"pressureDrop" : deltaP2
+	  }
+	  // This will continue for all of the components of the system
+	],
+	"pressureDropSum" : sumDeltaP
+}
+```
