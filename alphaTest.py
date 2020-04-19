@@ -2,7 +2,7 @@
 #sys.path.insert(0, '/bins/A21func/')
 import math
 import bin
-name = 'line'
+name = input('Name of the component\n(See documentation for vaild names):\n')
 #print(bin.A21(name).paramList)
 def iterdict(d):
     for k,v in d.items():
