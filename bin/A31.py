@@ -26,6 +26,8 @@ class A31:
             self.calc['pressureDrop'] = self.lineCalc()
         elif self.CID == 'BND':
             self.calc['pressureDrop'] = False
+        elif self.CID == 'VLV':
+            self.calc['pressureDrop'] = False
         elif self.CID == 'ORF':
             self.calc['pressureDrop'] = False
         elif self.CID == 'INJ':
@@ -43,9 +45,10 @@ class A31:
         elif self.CID == 'CON':
             self.calc['pressureDrop'] = False
         if self.calc['pressureDrop'] == False:
-            raise NotImplementedError('Only calculations for a line have '+
-                                      'been implemented at this stage in '+
-                                      'development.')
+            raise NotImplementedError('Calcuations for a '+
+                                      str(self.dict['CID'])+' have not yet '+
+                                        'been implemented in this' +
+                                        'pre-alpha state.')
         else:
             self.dict['calculated']['pressureDrop'] = self.calc['pressureDrop']
     def lineCalc(self):
