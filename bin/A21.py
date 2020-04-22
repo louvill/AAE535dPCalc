@@ -59,10 +59,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -72,6 +72,7 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
+                'dynamicPressure' : 'q',
                 'reynolds' : 'rey',
                 'frictionFactor' : 'f',
                 'ktLosses' : False,
@@ -98,10 +99,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -111,6 +112,7 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
+                'dynamicPressure' : 'q',
                 'reynolds' : 'rey',
                 'frictionFactor' : 'f',
                 'ktLosses' : 'kt',
@@ -137,10 +139,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -150,6 +152,7 @@ class A21:
                 'temperature' : False
               },
               'calculated' : {
+                'dynamicPressure' : False,
                 'reynolds' : False,
                 'frictionFactor' : False,
                 'ktLosses' : False,
@@ -176,10 +179,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -189,6 +192,7 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
+                'dynamicPressure' : 'q',
                 'reynolds' : 'rey',
                 'frictionFactor' : 'f',
                 'ktLosses' : 'kt',
@@ -215,10 +219,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -228,6 +232,7 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
+                'dynamicPressure' : 'q',
                 'reynolds' : 'rey',
                 'frictionFactor' : 'f',
                 'ktLosses' : 'kt',
@@ -235,14 +240,14 @@ class A21:
               }
             },
             #SUDDEN EXPANSION DEFINITION
-            'SUDDENEXPANSION' : {
+            'EXPANSION' : {
               'CID' : 'EXP',
               'geometry' : {
                 'length' : False,
                 'height' : False,
                 'insideArea' : False,
-                'massFlow' : False,
-                'hydraulicDiameter' : False,
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
                 'bendRadius' : False,
                 'bendAngle' : False
               },
@@ -254,10 +259,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : 'upsteamArea',
                 'downstreamArea' : 'downstreamArea',
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
-                    'downstreamDiameter' : False,
+                    'contractionLength' : False,
                     'downstreamRadiusOfCurvature' : False
                 }
               },
@@ -267,6 +272,7 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
+                'dynamicPressure' : 'q',
                 'reynolds' : 'rey',
                 'frictionFactor' : 'f',
                 'ktLosses' : 'kt',
@@ -274,9 +280,17 @@ class A21:
               }
             },
             #SUDDEN CONTRACTION DEFINITION
-            'SUDDENCONTRACTION' : {
+            'CONTRACTION' : {
               'CID' : 'CON',
-              'geometry' : False,
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
               'valve' : {
                 'valveCoefficient' : False,
                 'specificGravity' : False,
@@ -285,10 +299,10 @@ class A21:
               'misc' : {
                 'upstreamArea' : 'upsteamArea',
                 'downstreamArea' : 'downstreamArea',
-                'contractionAngledOrCurved' : 'a or c',
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : 'a or c',
                     'angle' : 'contractAngle',
-                    'downstreamDiameter' : 'contractDiam',
+                    'contractionLength' : 'cL',
                     'downstreamRadiusOfCurvature' : 'contractCurvRad'
                 }
               },
@@ -298,9 +312,10 @@ class A21:
                 'temperature' : 'T'
               },
               'calculated' : {
-                'reynolds' : False,
-                'frictionFactor' : False,
-                'ktLosses' : False,
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
                 'pressureDrop' : 'deltaP'
               }
             },
@@ -328,8 +343,8 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
                     'downstreamDiameter' : False,
                     'downstreamRadiusOfCurvature' : False
@@ -367,8 +382,8 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
                     'downstreamDiameter' : False,
                     'downstreamRadiusOfCurvature' : False
@@ -406,8 +421,8 @@ class A21:
               'misc' : {
                 'upstreamArea' : False,
                 'downstreamArea' : False,
-                'contractionAngledOrCurved' : False,
                 'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
                     'angle' : False,
                     'downstreamDiameter' : False,
                     'downstreamRadiusOfCurvature' : False

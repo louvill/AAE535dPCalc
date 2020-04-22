@@ -4,5 +4,6 @@ from .A21 import A21
 from .A22 import A22
 from .A31 import A31
 #from .A32 import A32
+from .suddenContractionKtRegression import contractKt
 
 #print(A21func('line').paramList)
