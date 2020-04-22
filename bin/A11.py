@@ -1,4 +1,4 @@
-def A11Function(components):
+def A11(components):
     for i in components:
         print("Component: " + i[3:6] + "\tType: " + i[0:3])
 

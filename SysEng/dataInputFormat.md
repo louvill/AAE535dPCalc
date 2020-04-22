@@ -24,10 +24,10 @@ The data for the pressure drop calculator will be input in the following manner:
   'misc' : {
     'upstreamArea' : upsteamArea,
 	'downstreamArea' : downstreamArea,
-	'contractionAngledOrCurved' : 'a or c',
 	'contractionParameters' : {
+	  'contractionAngledOrCurved' : 'angle or curve',
 	  'angle' : contractAngle,
-	  'downstreamDiameter' : contractDiam,
+	  'contractionLength' : cL,
 	  'downstreamRadiusOfCurvature' : contractCurvRad
     }
   },
@@ -37,6 +37,7 @@ The data for the pressure drop calculator will be input in the following manner:
 	'temperature' = T
   },
   'calculated' : {
+    'dynamicPressure' : 'q',
     'reynolds' : rey,
 	'frictionFactor' : f,
 	'ktLosses' : kt,
@@ -69,11 +70,11 @@ The data for the pressure drop calculator will be input in the following manner:
     {
       "contractExpandUpstream" : upsteamArea,
       "contractExpandDownstream" : downstreamArea,
-      "contractionAngledOrCurved" : 'a or c',
       "contractionParameters" : [
         {
+		  "contractionAngledOrCurved" : angleOrCurve,
           "angle" : contractAngle,
-          "downstreamDiameter" : contractDiam,
+          "contractionLength" : cL,
           "downstreamRadiusOfCurvature" : contractCurvRad
         }
       ]
@@ -88,6 +89,7 @@ The data for the pressure drop calculator will be input in the following manner:
   ],
   "calculatedTerms" : [
     {
+	  "dynamicPressure" : q,
       "reynoldsNumber" : rey,
       "frictionFactor" : f,
       "ktLosses" : kt,

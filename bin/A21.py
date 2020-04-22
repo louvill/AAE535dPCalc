@@ -13,408 +13,434 @@
 #These dictionaries should be able to looped through by doing recursion.
 # see recursionExample.py in /bin/ for an example of this.
 
-cTypes = {
-    #LINE DEFINITION
-    'LINE': {
-      'CID' : 'LNE',
-      'geometry' : {
-        'length' : 'deltaX',
-        'height' : 'deltaZ',
-        'insideArea' : 'insideArea',
-        'massFlow' : 'mDot',
-        'hydraulicDiameter' : 'Dh',
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
+class A21:
+    #First we create the initialization which will take in the 'NAME' input
+    def __init__(self,name):
+        self.name = name
+        #With that defined, we define our component types
+        self.componentTypes()
+        #And now we run the A21 function
+        self.paramList = self.A21func()
+    #######################
+    # FUNCTION DEFINITION #
+    #######################
+    def A21func(self):
+        self.upperName = str(self.name).upper()
+        try:
+            parameters = self.cTypes[self.upperName]
+        except KeyError:
+            raise KeyError("You have not input a valid component type. "+
+                           "Look at the documentation to see what names"+
+                           " have been assigned to which components.")
+        else:
+            return(parameters)
+    #################
+    #COMPONENT TYPES#
+    #################
+    def componentTypes(self):
+        self.cTypes = {
+            #LINE DEFINITION
+            'LINE': {
+              'CID' : 'LNE',
+              'geometry' : {
+                'length' : 'deltaX',
+                'height' : 'deltaZ',
+                'insideArea' : 'insideArea',
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : False,
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #BEND DEFINITION
+            'BEND': {
+              'CID' : 'BND',
+              'geometry' : {
+                'length' : 'deltaX',
+                'height' : 'deltaZ',
+                'insideArea' : 'insideArea',
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : 'radius',
+                'bendAngle' : 'angle'
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #VALVE DEFINITION
+            'VALVE': {
+              'CID' : 'VLV',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : False,
+                'hydraulicDiameter' : False,
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : 'cValve',
+                'specificGravity' : 'rhoSpec',
+                'valveAuthority' : 'N'
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : False,
+                'viscosity' : False,
+                'temperature' : False
+              },
+              'calculated' : {
+                'dynamicPressure' : False,
+                'reynolds' : False,
+                'frictionFactor' : False,
+                'ktLosses' : False,
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #TUBE SPLIT DEFINITION
+            'TUBESPLIT' : {
+              'CID' : 'SPL',
+              'geometry' : {
+                'length' : False,
+                'height' : 'deltaZ',
+                'insideArea' : 'insideArea',
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #TUBE JOIN DEFINITION
+            'TUBEJOIN' : {
+              'CID' : 'JON',
+              'geometry' : {
+                'length' : False,
+                'height' : 'deltaZ',
+                'insideArea' : 'insideArea',
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #SUDDEN EXPANSION DEFINITION
+            'EXPANSION' : {
+              'CID' : 'EXP',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : 'upsteamArea',
+                'downstreamArea' : 'downstreamArea',
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'contractionLength' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #SUDDEN CONTRACTION DEFINITION
+            'CONTRACTION' : {
+              'CID' : 'CON',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : 'mDot',
+                'hydraulicDiameter' : 'Dh',
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : 'upsteamArea',
+                'downstreamArea' : 'downstreamArea',
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : 'a or c',
+                    'angle' : 'contractAngle',
+                    'contractionLength' : 'cL',
+                    'downstreamRadiusOfCurvature' : 'contractCurvRad'
+                }
+              },
+              'fluidProperties' : {
+                'density' : 'rho',
+                'viscosity' : 'mu',
+                'temperature' : 'T'
+              },
+              'calculated' : {
+                'dynamicPressure' : 'q',
+                'reynolds' : 'rey',
+                'frictionFactor' : 'f',
+                'ktLosses' : 'kt',
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            ####################################################################
+            #The next three will be odd for calculating pressure drop for them.#
+            # They will (probably) not use the typical values herein.          #
+            ####################################################################
+            #ORIFICE
+            'ORIFICE' : {
+              'CID' : 'ORF',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : False,
+                'hydraulicDiameter' : False,
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'downstreamDiameter' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : False,
+                'viscosity' : False,
+                'temperature' : False
+              },
+              'calculated' : {
+                'reynolds' : False,
+                'frictionFactor' : False,
+                'ktLosses' : False,
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #INJECTOR
+            'INJECTOR' : {
+              'CID' : 'INJ',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : False,
+                'hydraulicDiameter' : False,
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'downstreamDiameter' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : False,
+                'viscosity' : False,
+                'temperature' : False
+              },
+              'calculated' : {
+                'reynolds' : False,
+                'frictionFactor' : False,
+                'ktLosses' : False,
+                'pressureDrop' : 'deltaP'
+              }
+            },
+            #CATALYST BED
+            'CATALYSTBED' : {
+              'CID' : 'CAT',
+              'geometry' : {
+                'length' : False,
+                'height' : False,
+                'insideArea' : False,
+                'massFlow' : False,
+                'hydraulicDiameter' : False,
+                'bendRadius' : False,
+                'bendAngle' : False
+              },
+              'valve' : {
+                'valveCoefficient' : False,
+                'specificGravity' : False,
+                'valveAuthority' : False
+              },
+              'misc' : {
+                'upstreamArea' : False,
+                'downstreamArea' : False,
+                'contractionParameters' : {
+                    'contractionAngledOrCurved' : False,
+                    'angle' : False,
+                    'downstreamDiameter' : False,
+                    'downstreamRadiusOfCurvature' : False
+                }
+              },
+              'fluidProperties' : {
+                'density' : False,
+                'viscosity' : False,
+                'temperature' : False
+              },
+              'calculated' : {
+                'reynolds' : False,
+                'frictionFactor' : False,
+                'ktLosses' : False,
+                'pressureDrop' : 'deltaP'
+              }
+            },
         }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : 'rey',
-        'frictionFactor' : 'f',
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #BEND DEFINITION
-    'BEND': {
-      'CID' : 'BND',
-      'geometry' : {
-        'length' : 'deltaX',
-        'height' : 'deltaZ',
-        'insideArea' : 'insideArea',
-        'massFlow' : 'mDot',
-        'hydraulicDiameter' : 'Dh',
-        'bendRadius' : 'radius',
-        'bendAngle' : 'angle'
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : 'rey',
-        'frictionFactor' : 'f',
-        'ktLosses' : 'kt',
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #VALVE DEFINITION
-    'VALVE': {
-      'CID' : 'VLV',
-      'geometry' : {
-        'length' : False,
-        'height' : False,
-        'insideArea' : False,
-        'massFlow' : False,
-        'hydraulicDiameter' : False,
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : 'cValve',
-        'specificGravity' : 'rhoSpec',
-        'valveAuthority' : 'N'
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : False,
-        'viscosity' : False,
-        'temperature' : False
-      },
-      'calculated' : {
-        'reynolds' : False,
-        'frictionFactor' : False,
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #TUBE SPLIT DEFINITION
-    'TUBESPLIT' : {
-      'CID' : 'SPL',
-      'geometry' : {
-        'length' : False,
-        'height' : 'deltaZ',
-        'insideArea' : 'insideArea',
-        'massFlow' : 'mDot',
-        'hydraulicDiameter' : 'Dh',
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : 'rey',
-        'frictionFactor' : 'f',
-        'ktLosses' : 'kt',
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #TUBE JOIN DEFINITION
-    'TUBEJOIN' : {
-      'CID' : 'JON',
-      'geometry' : {
-        'length' : False,
-        'height' : 'deltaZ',
-        'insideArea' : 'insideArea',
-        'massFlow' : 'mDot',
-        'hydraulicDiameter' : 'Dh',
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : 'rey',
-        'frictionFactor' : 'f',
-        'ktLosses' : 'kt',
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #SUDDEN EXPANSION DEFINITION
-    'SUDDENEXPANSION' : {
-      'CID' : 'EXP',
-      'geometry' : {
-        'length' : False,
-        'height' : False,
-        'insideArea' : False,
-        'massFlow' : False,
-        'hydraulicDiameter' : False,
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : 'upsteamArea',
-        'downstreamArea' : 'downstreamArea',
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : 'rey',
-        'frictionFactor' : 'f',
-        'ktLosses' : 'kt',
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #SUDDEN CONTRACTION DEFINITION
-    'SUDDENCONTRACTION' : {
-      'CID' : 'CON',
-      'geometry' : False,
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : 'upsteamArea',
-        'downstreamArea' : 'downstreamArea',
-        'contractionAngledOrCurved' : 'a or c',
-        'contractionParameters' : {
-            'angle' : 'contractAngle',
-            'downstreamDiameter' : 'contractDiam',
-            'downstreamRadiusOfCurvature' : 'contractCurvRad'
-        }
-      },
-      'fluidProperties' : {
-        'density' : 'rho',
-        'viscosity' : 'mu',
-        'temperature' : 'T'
-      },
-      'calculated' : {
-        'reynolds' : False,
-        'frictionFactor' : False,
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    ####################################################################
-    #The next three will be odd for calculating pressure drop for them.#
-    # They will (probably) not use the typical values herein.          #
-    ####################################################################
-    #ORIFICE
-    'ORIFICE' : {
-      'CID' : 'ORF',
-      'geometry' : {
-        'length' : False,
-        'height' : False,
-        'insideArea' : False,
-        'massFlow' : False,
-        'hydraulicDiameter' : False,
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : False,
-        'viscosity' : False,
-        'temperature' : False
-      },
-      'calculated' : {
-        'reynolds' : False,
-        'frictionFactor' : False,
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #INJECTOR
-    'INJECTOR' : {
-      'CID' : 'INJ',
-      'geometry' : {
-        'length' : False,
-        'height' : False,
-        'insideArea' : False,
-        'massFlow' : False,
-        'hydraulicDiameter' : False,
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : False,
-        'viscosity' : False,
-        'temperature' : False
-      },
-      'calculated' : {
-        'reynolds' : False,
-        'frictionFactor' : False,
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-    #CATALYST BED
-    'CATALYSTBED' : {
-      'CID' : 'CAT',
-      'geometry' : {
-        'length' : False,
-        'height' : False,
-        'insideArea' : False,
-        'massFlow' : False,
-        'hydraulicDiameter' : False,
-        'bendRadius' : False,
-        'bendAngle' : False
-      },
-      'valve' : {
-        'valveCoefficient' : False,
-        'specificGravity' : False,
-        'valveAuthority' : False
-      },
-      'misc' : {
-        'upstreamArea' : False,
-        'downstreamArea' : False,
-        'contractionAngledOrCurved' : False,
-        'contractionParameters' : {
-            'angle' : False,
-            'downstreamDiameter' : False,
-            'downstreamRadiusOfCurvature' : False
-        }
-      },
-      'fluidProperties' : {
-        'density' : False,
-        'viscosity' : False,
-        'temperature' : False
-      },
-      'calculated' : {
-        'reynolds' : False,
-        'frictionFactor' : False,
-        'ktLosses' : False,
-        'pressureDrop' : 'deltaP'
-      }
-    },
-}
-
-########################################
-# Now time for the function defintion  #
-########################################
-def A21(name):
-    upperName = str(name).upper()
-    try:
-        parameters = cTypes[upperName]
-    except KeyError:
-        raise KeyError("You have not input a valid component type. "+
-                   "Look at the documentation to see what names"+
-                   " have been assigned to which components.")
-    else:
-        return(parameters)
 
 #Example of this in use. Uncomment to see what happens and try some names out yourself
-#print(A21('line'))
+#print(A21('line').paramList)
