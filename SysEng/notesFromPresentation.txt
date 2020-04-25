@@ -1,0 +1,8 @@
+- specify what the length and height actually mean
+- Maybe make a function to check orders of magnitude
+- update dictionaries to include units
+- From Jay Evans:
+
+"Very cool. I used a GUI code for pressure drop calcs like what you are describing alot one summer. You can check it out here (http://inresllc.com/products/macroflow/overview.html) for an example. I also think an non-GUI option to just type up your own input files is nice since its so manual. Nice job! "
+
+- Jeffrey Willhauck for code review

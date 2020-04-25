@@ -65,7 +65,7 @@ def inputVal(k,v,d):
     #Evaluate the string if it able to be and then float it:
     output = floatInput(output,k,v,d)
     return(output)
-newDict = iterdict(bin.A21(name).paramList)
+newDict = iterdict(bin.A21(name).paramList)      
 newDict = bin.A22(newDict).dict
 pDrop = bin.A31(newDict).dict['calculated']['pressureDrop']
 print('Pressure Drop:',pDrop)
