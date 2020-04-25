@@ -34,3 +34,9 @@ def main(jsonInput):
     A32Output = ''
     #
     return(A32Output)
+
+#### MAIN ####
+with open("data/testSave.txt", "r") as f:
+    file_content = f.read()
+
+print(file_content)
