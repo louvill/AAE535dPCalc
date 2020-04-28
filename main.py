@@ -6,6 +6,8 @@
 # functional script. Futher work will need to be completed once
 # milestone "Sub Function Definitions" is completed.
 
+import json
+
 def main(jsonInput):
     #Method for converting json to python arrays
     #data = doing stuff to .json file
@@ -36,7 +38,7 @@ def main(jsonInput):
     return(A32Output)
 
 #### MAIN ####
-with open("data/testSave.txt", "r") as f:
-    file_content = f.read()
-
-print(file_content)
+with open('saves/testSave.txt') as f:
+    data = json.load(f)
+print(type(data))
+print(data["SHORT NAME"]["CID"])
