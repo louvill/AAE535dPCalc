@@ -1,0 +1,190 @@
+{
+// Line Definition
+"LINE" : {
+	"component" : {
+		"length" : {
+			"value" : null,
+			"displayName" : "Length measured from the center line",
+			"unit" : "length"
+			},
+		"height" : {
+			"value" : null,
+			"displayName" : "Height Change",
+			"unit" : "length"
+			},
+		"insideArea" : {
+			"value" : null,
+			"displayName" : "Inside Area of the Pipe",
+			"unit" : "area"
+			},
+		"massFlow" : {
+			"value" : null,
+			"displayName" : "Fluid Mass Flow",
+			"unit" : "mass_flow"
+			},
+		"hydraulicDiameter" : {
+			"value" : null,
+			"displayName" : "Hydraulic Diameter",
+			"unit" : "length"
+			}
+		},
+	"fluid" : {
+		"density" : {
+			"value" : null,
+			"displayName" : "Fluid Density",
+			"unit" : "density"
+			},
+		"viscosity" : {
+			"value" : null,
+			"displayName" : "Fluid Viscosity",
+			"unit" : "viscosity_dynamic"
+			}
+		}
+	},
+// Bend Definition
+"BEND" : {
+	"component" : {
+		"length" : {
+				"value" : null,
+				"displayName" : "Length measured from the center line",
+				"unit" : "length"
+				},
+		"height" : {
+				"value" : null,
+				"displayName" : "Height Change",
+				"unit" : "length"
+				},
+		"insideArea" : {
+				"value" : null,
+				"displayName" : "Inside Area of the Pipe",
+				"unit" : "area"
+				},
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Fluid Mass Flow",
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+				"unit" : "length"
+				},
+		"bendRadius" : {
+				"value" : null,
+				"displayName" : "Radius of Curvature of the Bend",
+				"unit" : "distance"
+				},
+		"bendAngle" : {
+				"value" : null,
+				"displayName" : "Angle of the Bend",
+				"unit" : "angle"
+				},
+		},
+	"fluid" : {
+		"density" : {
+				"value" : null,
+				"displayName" : "Fluid Density",
+				"unit" : "density"
+				},
+		"viscosity" : {
+				"value" : null,
+				"displayName" : "Fluid Viscosity",
+				"unit" : "viscosity_dynamic"
+				}
+		}
+	},
+// Sudden Expansion Definition
+"EXPANSION" : {
+	"component" : {
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Fluid Mass Flow",
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+				"unit" : "length"
+				},
+		"contractExpandUpstream" : {
+				"value" : null,
+				"displayName" : "Upstrem Area",
+				"unit" : "area"
+				},
+		"contractExpandDownstream" : {
+				"value" : null,
+				"displayName" : "Downstream Area",
+				"unit" : "area"
+				}
+		},
+"fluid" : {
+	"density" : {
+			"value" : null,
+			"displayName" : "Fluid Density",
+			"unit" : "density"
+			},
+	"viscosity" : {
+			"value" : null,
+			"displayName" : "Fluid Viscosity",
+			"unit" : "viscosity_dynamic"
+			}
+	}
+},
+// Contraction Definition
+"CONTRACTION" : {
+	"component" : {
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Fluid Mass Flow",
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+				"unit" : "length"
+				},
+		"contractExpandUpstream" : {
+				"value" : null,
+				"displayName" : "Upstrem Area",
+				"unit" : "area"
+				},
+		"contractExpandDownstream" : {
+				"value" : null,
+				"displayName" : "Downstream Area",
+				"unit" : "area"
+				},
+		"contractionAngledOrCurved" : {
+				"value" : null,
+				"displayName" : "Is the contraction angled or curved?",
+				"unit" : "string"
+				},
+		"angle" : {
+				"value" : null,
+				"displayName" : "Double angle of Contraction",
+				"unit" : "angle"
+				},
+		"contractionLength" : {
+				"value" : null,
+				"displayName" : "Centerline Length of Contraction",
+				"unit" : "length"
+				},
+		"downstreamRadiusOfCurvature" : {
+				"value" : null,
+				"displayName" : "Contraction Radius of Curvature",
+				"unit" : "length"
+				}
+		},
+	"fluid" : {
+		"density" : {
+				"value" : null,
+				"displayName" : "Fluid Density",
+				"unit" : "density"
+				},
+		"viscosity" : {
+				"value" : null,
+				"displayName" : "Fluid Viscosity",
+				"unit" : "viscosity_dynamic"
+				}
+		}
+	}
+}
