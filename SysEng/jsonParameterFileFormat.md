@@ -12,135 +12,135 @@ Notation:
 
 ```python
 {
-  "SHORT NAME" : {
-    "IIN" : "IIN",
-    "CID" : "CID",
-	"displayName" : "LONGER NAME",
-	"parent" : "something",
-	"child" : "something",
-	"values" : {
-	  "component" : {
-	    "length" : {
-		  "value" : null,
-		  "displayName" : "Length measured from the center line",
-		  "unit" : "distance"
-		},
-	    "height" : {
-		  "value" : null,
-		  "displayName" : "Height Change",
-		  "unit" : "distance"
-		},
-	    "insideArea" : {
-		  "value" : null,
-		  "displayName" : "Inside Area of the Pipe",
-		  "unit" : "area"
-		},
-	    "massFlow" : {
-		  "value" : null,
-		  "displayName" : "Fluid Mass Flow",
-		  "unit" : "massFlow"
-		},
-	    "hydraulicDiameter" : {
-		  "value" : null,
-		  "displayName" : "Hydraulic Diameter",
-		  "unit" : "length"
-		},
-        "bendRadius" : {
-		  "value" : null,
-		  "displayName" : "Radius of Curvature of the Bend",
-		  "unit" : "distance"
-		},
-        "bendAngle" : {
-		  "value" : null,
-		  "displayName" : "Angle of the Bend",
-		  "unit" : "angle"
-		},
-        "valveCoefficient" : {
-		  "value" : null,
-		  "displayName" : "Valve Coefficient (Cv)",
-		  "unit" : null
-		},
-	    "specificGravity" : {
-		  "value" : null,
-		  "displayName" : "Specific Gravity of the Fluid",
-		  "unit" : null
-		},
-	    "valveAuthority" : {
-		  "value" : null,
-		  "displayName" : "Valve Authority (N)",
-		  "unit" : null
-		},
-        "contractExpandUpstream" : {
-		  "value" : null,
-		  "displayName" : "Upstrem Area",
-		  "unit" : "area"
-		},
-        "contractExpandDownstream" : {
-		  "value" : null,
-		  "displayName" : "Downstream Area",
-		  "unit" : "area"
-		},
-		"contractionAngledOrCurved" : {
-		  "value" : null,
-		  "displayName" : "Is the contraction angled or curved?",
-		  "unit" : "string"
-		},
-        "angle" : {
-		  "value" : null,
-		  "displayName" : "Double angle of Contraction",
-		  "unit" : "angle"
-		},
-        "contractionLength" : {
-		  "value" : null,
-		  "displayName" : "Centerline Length of Contraction",
-		  "unit" : "length"
-		},
-        "downstreamRadiusOfCurvature" : {
-		  "value" : null,
-		  "displayName" : "Contraction Radius of Curvature",
-		  "unit" : "length"
+	"SHORT NAME" : {
+		"IIN" : "IIN",
+		"CID" : "CID",
+		"displayName" : "LONGER NAME",
+		"parent" : "something",
+		"child" : "something",
+		"values" : {
+			"component" : {
+				"length" : {
+					"value" : null,
+					"displayName" : "Length measured from the center line",
+					"unit" : "length"
+					},
+				"height" : {
+					"value" : null,
+					"displayName" : "Height Change",
+					"unit" : "length"
+					},
+				"insideArea" : {
+					"value" : null,
+					"displayName" : "Inside Area of the Pipe",
+					"unit" : "area"
+					},
+				"massFlow" : {
+					"value" : null,
+					"displayName" : "Fluid Mass Flow",
+					"unit" : "mass_flow"
+					},
+				"hydraulicDiameter" : {
+					"value" : null,
+					"displayName" : "Hydraulic Diameter",
+					"unit" : "length"
+					},
+				"bendRadius" : {
+					"value" : null,
+					"displayName" : "Radius of Curvature of the Bend",
+					"unit" : "distance"
+					},
+				"bendAngle" : {
+					"value" : null,
+					"displayName" : "Angle of the Bend",
+					"unit" : "angle"
+					},
+				"valveCoefficient" : {
+					"value" : null,
+					"displayName" : "Valve Coefficient (Cv)",
+					"unit" : null
+					},
+				"specificGravity" : {
+					"value" : null,
+					"displayName" : "Specific Gravity of the Fluid",
+					"unit" : null
+					},
+				"valveAuthority" : {
+					"value" : null,
+					"displayName" : "Valve Authority (N)",
+					"unit" : null
+					},
+				"contractExpandUpstream" : {
+					"value" : null,
+					"displayName" : "Upstrem Area",
+					"unit" : "area"
+					},
+				"contractExpandDownstream" : {
+					"value" : null,
+					"displayName" : "Downstream Area",
+					"unit" : "area"
+					},
+				"contractionAngledOrCurved" : {
+					"value" : null,
+					"displayName" : "Is the contraction angled or curved?",
+					"unit" : "string"
+					},
+				"angle" : {
+					"value" : null,
+					"displayName" : "Double angle of Contraction",
+					"unit" : "angle"
+					},
+				"contractionLength" : {
+					"value" : null,
+					"displayName" : "Centerline Length of Contraction",
+					"unit" : "length"
+					},
+				"downstreamRadiusOfCurvature" : {
+					"value" : null,
+					"displayName" : "Contraction Radius of Curvature",
+					"unit" : "length"
+					}
+				},
+			"fluid" : {
+				"density" : {
+					"value" : null,
+					"displayName" : "Fluid Density",
+					"unit" : "density"
+					},
+				"viscosity" : {
+					"value" : null,
+					"displayName" : "Fluid Viscosity",
+					"unit" : "viscosity_dynamic"
+					}
+				},
+			"calc" : {
+				"dynamicPressure" : {
+				  "value" : null,
+				  "displayName" : "Dynamic Pressure",
+				  "unit" : "pressure"
+				},
+				"reynoldsNumber" : {
+				  "value" : null,
+				  "displayName" : "Reynolds Number",
+				  "unit" : null
+				},
+				"frictionFactor" : {
+				  "value" : 0,
+				  "displayName" : "Friction Factor",
+				  "unit" : null
+				},
+				"ktLosses" : {
+				  "value" : null,
+				  "displayName" : "kt Losses",
+				  "unit" : null
+				},
+				"pressureDrop" : {
+				  "value" : null,
+				  "displayName" : "Component Pressure Drop",
+				  "unit" : "pressure"
+				}
+			}
 		}
-	  },
-	  "fluid" : {
-	    "density" : {
-		  "value" : null,
-		  "displayName" : "Fluid Density",
-		  "unit" : "mass/volume"
-		},
-        "viscosity" : {
-		  "value" : null,
-		  "displayName" : "Fluid Viscosity",
-		  "unit" : "pressure*time"
-		}
-	  },
-	  "calc" : {
-	    "dynamicPressure" : {
-		  "value" : null,
-		  "displayName" : "Dynamic Pressure",
-		  "unit" : "pressure"
-		},
-        "reynoldsNumber" : {
-		  "value" : null,
-		  "displayName" : "Reynolds Number",
-		  "unit" : null
-		},
-        "frictionFactor" : {
-		  "value" : 0,
-		  "displayName" : "Friction Factor",
-		  "unit" : null
-		},
-        "ktLosses" : {
-		  "value" : null,
-		  "displayName" : "kt Losses",
-		  "unit" : null
-		},
-        "pressureDrop" : {
-		  "value" : null,
-		  "displayName" : "Component Pressure Drop",
-		  "unit" : "pressure"
-		}
-	  }
 	}
-  }
 }
 ```
