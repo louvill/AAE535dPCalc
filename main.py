@@ -41,4 +41,4 @@ def main(jsonInput):
 with open('saves/testSave.txt') as f:
     data = json.load(f)
 print(type(data))
-print(data["SHORT NAME"]["CID"])
+print(data["CID"])

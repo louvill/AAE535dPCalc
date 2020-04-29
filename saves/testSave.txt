@@ -1,0 +1,48 @@
+{
+    "IIN" : "001",
+    "CID" : "LNE",
+	"displayName" : "Line",
+	"parent" : null,
+	"child" : null,
+	"values" : {
+	  "component" : {
+	    "length" : {
+		  "value" : null,
+		  "displayName" : "Length measured from the center line",
+		  "unit" : "distance"
+		},
+	    "height" : {
+		  "value" : null,
+		  "displayName" : "Height Change",
+		  "unit" : "distance"
+		},
+	    "insideArea" : {
+		  "value" : null,
+		  "displayName" : "Inside Area of the Pipe",
+		  "unit" : "area"
+		},
+	    "massFlow" : {
+		  "value" : null,
+		  "displayName" : "Fluid Mass Flow",
+		  "unit" : "massFlow"
+		},
+	    "hydraulicDiameter" : {
+		  "value" : null,
+		  "displayName" : "Hydraulic Diameter",
+		  "unit" : "length"
+		}
+	  },
+	  "fluid" : {
+	    "density" : {
+		  "value" : null,
+		  "displayName" : "Fluid Density",
+		  "unit" : "mass/volume"
+		},
+        "viscosity" : {
+		  "value" : null,
+		  "displayName" : "Fluid Viscosity",
+		  "unit" : "pressure*time"
+		}
+	  }
+	}
+}
