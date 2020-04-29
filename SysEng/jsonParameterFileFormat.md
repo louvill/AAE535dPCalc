@@ -7,6 +7,8 @@ Notation:
  - parent : The component IIN that is directly upstream of this component
  - child : The component IIN that is directly downstream of this component
  - values : All of the values that are needed for pressure drop calculation, including the pressure drop itself.
+ 
+ As these components are input, they will be assigned a unique index identification number (IIN) that tells the program where in relation to the other parts a component is located. A parent/child value is also included for future work with joins and splits. (look at [issue #7](https://github.com/louvill/AAE535dPCalc/issues/7) for more info)
 
 ```python
 {
