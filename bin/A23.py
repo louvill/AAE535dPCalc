@@ -7,72 +7,83 @@ import math
 #Need the contraction kt method for this as well
 #import suddenContractionKtRegression as sckr
 #
-class A22:
-    def __init__(self,dict): #dict stands for dictionary
-        self.dict = dict
-        self.calc = self.dict['calculated']
-        self.geo = self.dict['geometry']
-        self.misc = self.dict['misc']
-        self.fluid = self.dict['fluidProperties']
-        #The angles input may have been given in degrees and not radians.
+class A23:
+    def __init__(self,d): #d stands for dictionary
+        self.dict = d
+        # For ease of use within this method, we define the full values dictionary
+        # and the component and fluid parameters all as seperate variables
+        self.vals = self.dict["values"]
+        self.comp = self.vals["component"]
+        self.fluid = self.vals["fluid"]
+        # Next we define a new variable for our calculated values that will
+        # be filled with terms from here and A31.
+        self.calc = {}
+
+        # UNIT CONVERSIONS : this might happen elsewhere later.
+        # The angles input may have been given in degrees and not radians.
         # let's fix that now. If the number is >3.14, there is a good bet
         # that the person put in degrees and not radians.
-        if self.geo['bendAngle']:
-            if self.geo['bendAngle'] >= math.pi:
-                self.geo['bendAngle'] = self.geo['bendAngle'] * (math.pi/180)
-                self.dict['geometry'] = self.geo
-        if self.misc['contractionParameters']['angle']:
-            if self.misc['contractionParameters']['angle'] >= math.pi:
-                self.misc['contractionParameters']['angle'] = (
-                    self.misc['contractionParameters']['angle'] * (math.pi/180)
-                    )
-                self.dict['misc'] = self.misc
-        #Lets find the velocity of the fluid (in whatever location we're looking at)
-        self.vel = self.velCalc()
+        if 'bendAngle' in self.comp.keys():
+            if self.comp['bendAngle']["value"] >= math.pi:
+                self.comp['bendAngle']["value"] = self.comp['bendAngle']["value"] * (math.pi/180)
+                self.dict["values"]["component"] = self.comp
+        if "angle" in self.comp.keys():
+            if self.comp['angle']["value"] >= math.pi:
+                self.comp['angle']["value"] = self.comp['angle']["value"]*(math.pi/180)
+                self.dict["values"]["component"] = self.comp
         #Now onto the logic tree of different parameters to calculate
         self.logicTree()
-    #We create a logic tree that can take in the dictionary
+        #Once we have all of the local variables defined, redefine dict
+        self.dict["values"]["calculated"] = self.calc
+        
+    # We create a logic tree that can take in the dictionary
     # input and determine which parameter values need to be calculated.
-    # Because the data structure is set up so values that are not needed
-    # are labeled 'False', we can check to see if we need a value by simply
-    # asking 'if Parameter' and if it isn't False then we proceed.
     def logicTree(self):
-        if self.calc['dynamicPressure']:
-            self.calc['dynamicPressure'] = self.qFunc()
-        if self.calc['reynolds']:
+        # Fluid Velocity: We need mass flow, area, and density
+        if ("massFlow" in self.comp.keys()
+            and "insideArea" in self.comp.keys()
+            and "density" in self.fluid.keys()
+            ):
+            self.calc["velocity"] = self.velCalc()
+        # Dynamic Pressure: We need velocity (if we have velocity, we'll have density)
+        if "velocity" in self.calc.keys():
+            self.calc["dynamicPressure"] = self.qFunc()
+        # Reynolds: We need velocity, hydraulic diameter, and viscosity
+        if ("velocity" in self.calc.keys()
+            and "hydraulicDiameter" in self.comp.keys()
+            and "viscosity" in self.fluid.keys()):
             self.calc['reynolds'] = self.reyFunc()
-            if self.calc['frictionFactor']:
-                self.calc['frictionFactor'] = self.fricFunc()
-        if self.calc['ktLosses']:
-            self.calc['ktLosses'] = self.ktFunc()
-        self.dict['calculated'] = self.calc
+            # And if we have Reynolds, let's get Friction Factor too
+            self.calc['frictionFactor'] = self.fricFunc()
+        # kt Losses has it's own logic tree
+        self.calc['ktLosses'] = self.ktFunc()
     def velCalc(self):
         if self.dict['CID'] == 'CON' or self.dict['CID'] == 'EXP':
             smallerArea = min( [
-                self.misc['upstreamArea'],
-                self.misc['downstreamArea']
+                float(self.comp['upstreamArea']["value"]),
+                float(self.comp['downstreamArea']["value"])
                 ]
                                )
             vel = (
-                self.geo['massFlow']/
-                (smallerArea * self.fluid['density'])
+                float(self.comp['massFlow']["value"])/
+                (smallerArea * float(self.fluid['density']["value"]))
                 )
         else:
-            vel = ( float(self.geo['massFlow'])/
-                    (float(self.geo['insideArea']) *
-                     float(self.fluid['density'])
+            vel = ( float(self.comp['massFlow']["value"])/
+                    (float(self.comp['insideArea']["value"]) *
+                     float(self.fluid['density']["value"])
                     )
             )
         return(vel)
     def qFunc(self):
-        q = 0.5 * self.fluid['density'] * self.vel**2
+        q = 0.5 * float(self.fluid['density']["value"]) * self.calc["velocity"]**2
         return(q)
     def reyFunc(self):
-        rey = ( (float(self.fluid['density']) *
-                 float(self.vel) *
-                 float(self.geo['hydraulicDiameter'])
+        rey = ( (float(self.fluid['density']["value"]) *
+                 float(self.calc["velocity"]) *
+                 float(self.comp['hydraulicDiameter']["value"])
                  )/
-                float(self.fluid['viscosity'])
+                float(self.fluid['viscosity']["value"])
             )
         return(rey)
     def fricFunc(self):
@@ -107,26 +118,26 @@ class A22:
         if self.dict['CID'] == 'BND':
             kt = (
                 (
-                    self.calc['frictionFactor']*self.geo['bendAngle']*
-                    (self.geo['bendRadius']/self.geo['hydraulicDiameter'])
+                    self.calc['frictionFactor']*self.comp['bendAngle']["value"]*
+                    (self.geo['bendRadius']["value"]/self.comp['hydraulicDiameter']["value"])
                     ) +
                 (
                     (0.10 + 2.4*self.calc['frictionFactor'])*
-                    math.sin(self.geo['bendAngle']/2)
+                    math.sin(self.comp['bendAngle']["value"]/2)
                     ) +
                 (
                     (
                         6.6 * self.calc['frictionFactor'] * (
-                            math.sqrt(math.sin(self.geo['bendAngle']/2))
-                            + math.sin(self.geo['bendAngle']/2)
+                            math.sqrt(math.sin(self.comp['bendAngle']["value"]/2))
+                            + math.sin(self.comp['bendAngle']["value"]/2)
                             )
                         ) /
                     (
                         (
-                            self.geo['bendRadius']/self.geo['hydraulicDiameter']
+                            self.comp['bendRadius']["value"]/self.comp['hydraulicDiameter']["value"]
                             ) **
                         (
-                            (4 * self.geo['bendAngle']) / 2
+                            (4 * self.comp['bendAngle']["value"]) / 2
                             )
                         )
                     )
@@ -134,21 +145,22 @@ class A22:
         elif self.dict['CID'] == 'EXP':
             kt = (
                 1 - (
-                    self.misc['upstreamArea']/self.misc['downstreamArea']
+                    self.comp['upstreamArea']["value"]/self.comp['downstreamArea']["value"]
                     )
                 ) ** 2
+        # THIS WHOLE METHOD NEEDS TO BE REWRITTEN #
         elif self.dict['CID'] == 'CON':
-            if self.misc['contractionParameters']['contractionAngledOrCurved'] == 'angle':
-                cL = self.misc['contractionParameters']['contractionLength']
-                angle = self.misc['contractionParameters']['angle']
+            if self.comp['contractionAngledOrCurved'] == 'angle':
+                cL = self.comp['contractionLength']["value"]
+                angle = self.comp['angle']["value"]
                 if angle < math.pi/6:
                     kt = 0
                 elif angle < math.pi/4:
                     kt = 0.05
                 else:
                     R = cL
-                    A1 = self.misc['upstreamArea']
-                    A2 = self.misc['downstreamArea']
+                    A1 = self.misc['upstreamArea']["value"]
+                    A2 = self.misc['downstreamArea']["value"]
                     D2 = 2 * math.sqrt(A2 / math.pi)
                     AR = A2/A1
                     rD = R/D2
@@ -161,8 +173,7 @@ class A22:
                 AR = A2/A1
                 rD = R / D2
                 kt = sckr.contractKt(AR,rD).kt
-                
+        ############################################
         else:
-            raise NotImplementedError('Calculations for kt of non-angles have not been '+
-                                  'implemented in this pre-alpha build.')
+            kt = 0
         return(kt)

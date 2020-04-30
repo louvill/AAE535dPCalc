@@ -6,6 +6,7 @@
 # functional script. Futher work will need to be completed once
 # milestone "Sub Function Definitions" is completed.
 
+import bin
 import json
 
 def main(jsonInput):
@@ -13,6 +14,19 @@ def main(jsonInput):
     #data = doing stuff to .json file
     #-------------
     #
+    pDrops = []
+    componentList = jsonInput["componentList"]
+    for item in componentList:
+        A23Output = bin.A23(item).dict
+        A31Output = bin.A31(A23Output).dict
+        pDrops.append(A31Output["values"]["calculated"]["pressureDrop"]["value"])
+    A32Output = bin.A32(pDrops,componentList).output
+    calc_json = json.dumps(A32Output)
+    output_file = open("saves/testOutput.json", "w")
+    n = output_file.write(calc_json)
+    output_file.close()
+    
+    
     #Calling of subfunctions
     #A11Output = A11(data)
     #
@@ -38,7 +52,6 @@ def main(jsonInput):
     return(A32Output)
 
 #### MAIN ####
-with open('saves/testSave.txt') as f:
+with open('saves/testSave.json') as f:
     data = json.load(f)
-print(type(data))
-print(data["CID"])
+main(data)

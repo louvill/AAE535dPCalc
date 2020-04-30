@@ -113,7 +113,7 @@ Notation:
 					"unit" : "viscosity_dynamic"
 					}
 				},
-			"calc" : {
+			"calculated" : {
 				"dynamicPressure" : {
 				  "value" : null,
 				  "displayName" : "Dynamic Pressure",

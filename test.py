@@ -42,5 +42,9 @@ def unitConvert(di):
                             print(v2)
                             di[k]["unit"] = v2
     return(di)
-print(unitConvert(save))
+#print(unitConvert(save))
+d = {'one':1, 'two':2}
+index = 'three'
+d[index] = 3
+print(d)
 

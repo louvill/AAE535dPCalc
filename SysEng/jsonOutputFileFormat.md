@@ -8,16 +8,28 @@ Since the function A32 will output a .json file to give all of the pressure drop
 	  {
 		"IIN" : IIN1,
 		"CID" : CID1,
-		"pressureDrop" : deltaP1
+		"pressureDrop" : {
+			"value" : deltaP1,
+			"displayName" : "Pressure Drop across Component IIN1",
+			"unit" : "pressure"
+			}
 	  },
 	  {
 		"IIN" : IIN2,
 		"CID" : CID2,
-		"pressureDrop" : deltaP2
+		"pressureDrop" : {
+			"value" : deltaP1,
+			"displayName" : "Pressure Drop across Component IIN1",
+			"unit" : "pressure"
+			}
 	  }
 	  // This will continue for all of the components of the system
 	],
-	"pressureDropSum" : sumDeltaP
+	"pressureDropSum" : {
+		"value" : deltaP1,
+		"displayName" : "Total Pressure Drop",
+		"unit" : "pressure"
+		}
 }
 ```
 
