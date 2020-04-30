@@ -6,7 +6,8 @@
 import math
 #Need the contraction kt method for this as well
 #import suddenContractionKtRegression as sckr
-#
+
+
 class A23:
     def __init__(self,d): #d stands for dictionary
         self.dict = d
