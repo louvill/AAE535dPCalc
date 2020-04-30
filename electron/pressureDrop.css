@@ -15,16 +15,17 @@
   display: flex;
   flex-flow: row nowrap;
   border-bottom: 2px solid black;
-  height: 200px;
+  min-height: 200px;
 }
 
 #settings {
   flex-grow: 3;
-  font-size: 30px;
   padding: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 #calculateButtonContainer {
@@ -32,6 +33,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#settings p {
+  font-size: 30px;
+  line-height: 30px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#saveFileName {
+  font-size: 20px;
+  line-height: 20px;
 }
 
 

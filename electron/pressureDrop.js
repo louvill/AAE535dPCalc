@@ -19,6 +19,7 @@ $(document).ready(function() {
   
   $("#calculateButton").click(calculateResults);
   $("#resultsButton").click(clickedResultsButton);
+  $("#loadSaveFileButton").click(loadSaveFile);
 });
 
 function addComponentElement(value, index, array) {
@@ -211,8 +212,10 @@ function extractInputFile() {
 function runPython() {
   var python = require('child_process').spawn('python', ['./main.py']);
   var outputFileExists = false;
+  var savePath = path.join(__dirname, '..', 'saves', 'testOutput.json');
+  fs.unlinkSync(savePath);
   while (!(outputFileExists)) {
-    outputFileExists = fs.existsSync(path.join(__dirname, '..', 'saves', 'testOutput.json'));
+    outputFileExists = fs.existsSync(savePath);
   }
 }
 
@@ -255,4 +258,19 @@ function clickedResultsButton() {
     $("#resultsButton").text("Show Results");
     $("#results").addClass("hidden");
   }
+}
+
+function loadSaveFile() {
+  var fName = $("#loadSaveFileButton").siblings("input").val();
+  var saveDir = path.join(__dirname, '..', 'saves');
+  var input = fs.readFileSync(path.join(saveDir, fName), 'utf8');
+  input = String(input);
+  input = JSON.parse(input);
+  
+  var componentsInput = input.componentList;
+  componentsInput.forEach(function(value) {
+/*    var components = Object.keys(componentList);
+    addRow(components)*/
+    window.alert(value.CID);
+  });
 }

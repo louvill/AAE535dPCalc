@@ -17,6 +17,7 @@ def main(jsonInput):
     pDrops = []
     componentList = jsonInput["componentList"]
     for item in componentList:
+        A22Output = bin.A22(item).dict
         A23Output = bin.A23(item).dict
         A31Output = bin.A31(A23Output).dict
         pDrops.append(A31Output["values"]["calculated"]["pressureDrop"]["value"])
