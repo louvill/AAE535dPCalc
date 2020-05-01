@@ -1,6 +1,5 @@
 let fs = require('fs');
 let path = require('path');
-let {PythonShell} = require('python-shell');
 
 $(document).ready(function() {
   // Load component information from componentTypes JSON file
@@ -15,7 +14,7 @@ $(document).ready(function() {
   unitObj = JSON.parse(txtUnitJSON);
   
   var components = Object.keys(componentList);
-  addRow(components);
+  addRow();
   
   $("#calculateButton").click(calculateResults);
   $("#resultsButton").click(clickedResultsButton);
@@ -65,12 +64,14 @@ function addRowElement(componentName, paramType, value, index, array) {
       rowStringHTML = rowStringHTML.concat("</select></div>");
   }
   $(this).append(rowStringHTML);
-  $(this).children(":last").prop("key", value);
-  $(this).children(":last").prop("displayName", displayName);
-    $(this).children(":last").prop("inputType", inputType);
+  $(this).children(":last").attr("key", value);
+  $(this).children(":last").attr("displayName", displayName);
+  $(this).children(":last").attr("inputType", inputType);
 }
 
-function addRow(components) {
+function addRow() {
+  components = Object.keys(componentList);
+  
   $('#main').append(
   '<div class="row">'+
     '<div class="dropDown">'+
@@ -98,57 +99,62 @@ function addRow(components) {
  
   // Define function to add component when component type is clicked
   $(".addComponent:last ~ .dropDownContent").click( function() {  
-    var rowElement = $(this).parents(".row");
+      var rowElement = $(this).parents(".row");
+      var componentIndex = $(this).attr("index");
+      var componentName = components[componentIndex];
+      populateRow(rowElement, componentName);
+  });
+}
+
+function populateRow(rowElement, componentName) {
+  
+  // Remove any existing parameter buttons
+  rowElement.find('.parameterButton').remove();
     
-    // Remove any existing parameter buttons
-    rowElement.find('.parameterButton').remove();
-    
-    // Set up collapsable menus
-    rowElement.children('.collapsable').children(".collapsableButton").off("click");
-    rowElement.children('.collapsable').children(".collapsableButton").click(function() {
-      var collapsableElement = $(this).parent();
-      if (collapsableElement.hasClass("collapsed")) {
-        collapsableElement.removeClass("collapsed");
-        collapsableElement.addClass("uncollapsed");
-      } else {
-        collapsableElement.removeClass("uncollapsed");
-        collapsableElement.addClass("collapsed");
-      }
-    });
-   
-    // Define parameter array based on componentIndex
-    var componentIndex = $(this).attr("index");
-    var componentName = components[componentIndex];
-    var componentParams = Object.keys(componentList[componentName].component);
-    var fluidParams = Object.keys(componentList[componentName].fluid);
-    
-    rowElement.prop("key", componentName);
-    
-    // Add component parameter buttons
-    componentParams.forEach(addRowElement.bind(rowElement.children(".parameterContainer").children(
-      ".buttonContainer"), componentName, 'component'));
-    
-    //Add fluid parameter buttons     
-    fluidParams.forEach(addRowElement.bind(rowElement.children(".fluidContainer").children(
-      ".buttonContainer"), componentName, 'fluid'));
-    
-    //Show component parameters and fluid property buttons
-    rowElement.children(".hidden").removeClass("hidden");
-    
-    // Change 'Add Component' -> 'Change Component'
-    $(this).siblings('.addComponent').text(componentList[componentName].displayName);
-    if ($(this).siblings().last().text() != "Clear Component") {
-      // Add row
-      addRow(components);
-      
-      $(this).parent().append('<div class="dropDownContent"">Clear Component</div>');
-      $(this).siblings().last().off("click");
-      
-      $(this).siblings().last().click(function () { 
-        $(this).parents(".row").last().remove();
-      });
+  // Set up collapsable menus
+  rowElement.children('.collapsable').children(".collapsableButton").off("click");
+  rowElement.children('.collapsable').children(".collapsableButton").click(function() {
+    var collapsableElement = $(this).parent();
+    if (collapsableElement.hasClass("collapsed")) {
+      collapsableElement.removeClass("collapsed");
+      collapsableElement.addClass("uncollapsed");
+    } else {
+      collapsableElement.removeClass("uncollapsed");
+      collapsableElement.addClass("collapsed");
     }
   });
+ 
+  // Define parameter array based on componentIndex
+  var componentParams = Object.keys(componentList[componentName].component);
+  var fluidParams = Object.keys(componentList[componentName].fluid);
+  
+  rowElement.attr("key", componentName);
+  
+  // Add component parameter buttons
+  componentParams.forEach(addRowElement.bind(rowElement.children(".parameterContainer").children(
+    ".buttonContainer"), componentName, 'component'));
+  
+  //Add fluid parameter buttons     
+  fluidParams.forEach(addRowElement.bind(rowElement.children(".fluidContainer").children(
+    ".buttonContainer"), componentName, 'fluid'));
+  
+  //Show component parameters and fluid property buttons
+  rowElement.children(".hidden").removeClass("hidden");
+  
+  // Change 'Add Component' -> 'Change Component'
+  var dropDown = $(rowElement).children(".dropDown");
+  dropDown.children(".addComponent").text(componentList[componentName].displayName);
+  if (dropDown.children().last().text() != "Clear Component") {
+    // Add row
+    addRow();
+    
+    dropDown.append('<div class="dropDownContent"">Clear Component</div>');
+    dropDown.children().last().off("click");
+    
+    dropDown.children().last().click(function () { 
+      rowElement.remove();
+    });
+  }
 }
 
 
@@ -158,10 +164,11 @@ function extractInputFile() {
   var numRows = rows.length
   
   rows.each(function( index ) {
-    var componentType = $(this).prop("key");
+    var componentType = $(this).attr("key");
     var currObject = {};
     currObject.IIN = "00"+(index+1);
     currObject.CID = componentList[componentType].CID;
+    currObject.key = componentType;
     currObject.displayName = componentList[componentType].displayName;
     currObject.parent = (index!=0)?("00"+(index)):("null");
     currObject.child = (index!=numRows-1)?("00"+(index+2)):("null");
@@ -170,10 +177,10 @@ function extractInputFile() {
     currObject.values.fluid = {};
     
     $(this).children('.parameterContainer').find('.parameterButton').each(function() {
-      var paramType = $(this).prop("key");
-      var inputType = $(this).prop("inputType");
+      var paramType = $(this).attr("key");
+      var inputType = $(this).attr("inputType");
       var paramObj = {};
-      paramObj.displayName = $(this).prop("displayName");
+      paramObj.displayName = $(this).attr("displayName");
       if (inputType == "boolean") {
         paramObj.value = $(this).children("select").val()
         paramObj.unit = "boolean";
@@ -188,10 +195,10 @@ function extractInputFile() {
     });
     
     $(this).children('.fluidContainer').find('.parameterButton').each(function() {
-      var paramType = $(this).prop("key");
+      var paramType = $(this).attr("key");
       var paramObj = {};
       paramObj.value = $(this).children("input").val();
-      paramObj.displayName = $(this).prop("displayName");
+      paramObj.displayName = $(this).attr("displayName");
       paramObj.unit = $(this).children("select").val();
       currObject.values.fluid[paramType] = paramObj;
     });
@@ -267,10 +274,40 @@ function loadSaveFile() {
   input = String(input);
   input = JSON.parse(input);
   
+  //delete existing information
+  $("#main").text("");
+  addRow();
+  
   var componentsInput = input.componentList;
-  componentsInput.forEach(function(value) {
-/*    var components = Object.keys(componentList);
-    addRow(components)*/
-    window.alert(value.CID);
+  componentsInput.forEach(function(currComponent) {
+    var rowElement = $(".row").last();
+    populateRow(rowElement, currComponent.key);
+    
+    //Fill out existing information
+    var componentObject = currComponent.values.component;
+    var componentParams = Object.keys(componentObject);
+
+    componentParams.forEach(function(currParam) {
+      var paramElement = rowElement.children(".parameterContainer").find(".parameterButton[key='"+currParam+"']");
+      
+      //NEED CONDITIONAL FOR BOOLEAN VALUES
+      var paramObj = componentObject[currParam];
+      paramElement.children("input").val(paramObj.value);
+      paramElement.children("select").val(paramObj.unit);
+    });
+    
+    var fluidObject = currComponent.values.fluid;
+    var fluidParams = Object.keys(fluidObject);
+
+    fluidParams.forEach(function(currParam) {
+      var paramElement = rowElement.children(".fluidContainer").find(".parameterButton[key='"+currParam+"']");
+      
+      //NEED CONDITIONAL FOR BOOLEAN VALUES
+      var paramObj = fluidObject[currParam];
+      paramElement.children("input").val(paramObj.value);
+      paramElement.children("select").val(paramObj.unit);
+    });
+
   });
+  
 }
