@@ -31,7 +31,7 @@ class contractKt:
         x = self.AR
         rD = self.rD
         #The following regressions were pulled from
-        # “SAE Aerospace Applied Thermodynamics Manual,” Developed by SAE Committee
+        # "SAE Aerospace Applied Thermodynamics Manual," Developed by SAE Committee
         # AC-9, Aircraft Environmental Systems, Society of Automotive Engineers, Inc., New
         # York, 1969.
         rDVals = [0,0.01,0.02,0.03,0.04,0.06,0.08,0.12]

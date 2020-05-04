@@ -1,0 +1,226 @@
+{
+"LINE" : {
+    "CID" : "LNE",
+    "displayName" : "Line",
+	"component" : {
+		"length" : {
+			"value" : null,
+			"displayName" : "Length",
+            "tooltip" : null,
+			"unit" : "length"
+			},
+		"height" : {
+			"value" : null,
+			"displayName" : "Height Change",
+            "tooltip" : null,
+			"unit" : "length"
+			},
+		"insideArea" : {
+			"value" : null,
+			"displayName" : "Pipe Area",
+            "tooltip" : null,
+			"unit" : "area"
+			},
+		"massFlow" : {
+			"value" : null,
+			"displayName" : "Mass Flow Rate",
+            "tooltip" : null,
+			"unit" : "mass_flow"
+			},
+		"hydraulicDiameter" : {
+			"value" : null,
+			"displayName" : "Hydraulic Diameter",
+            "tooltip" : null,
+			"unit" : "length"
+			}
+		},
+	"fluid" : {
+		"density" : {
+			"value" : null,
+			"displayName" : "Density",
+            "tooltip" : null,
+			"unit" : "density"
+			},
+		"viscosity" : {
+			"value" : null,
+			"displayName" : "Viscosity",
+            "tooltip" : null,
+			"unit" : "viscosity_dynamic"
+			}
+		}
+	},
+"BEND" : {
+    "CID" : "BND",
+    "displayName" : "Bend",
+	"component" : {
+		"length" : {
+				"value" : null,
+                "displayName" : "Length",
+				"tooltip" : null,
+				"unit" : "length"
+				},
+		"height" : {
+				"value" : null,
+				"displayName" : "Height Change",
+                "tooltip" : null,
+				"unit" : "length"
+				},
+		"insideArea" : {
+				"value" : null,
+          		"displayName" : "Pipe Area",
+                "tooltip" : null,
+				"unit" : "area"
+				},
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
+				"unit" : "length"
+				},
+		"bendRadius" : {
+				"value" : null,
+				"displayName" : "Bend Radius",
+                "tooltip" : "Along centerline",
+				"unit" : "length"
+				},
+		"bendAngle" : {
+				"value" : null,
+				"displayName" : "Bend Angle",
+                "tooltip" : null,
+				"unit" : "angle"
+				}
+		},
+	"fluid" : {
+		"density" : {
+				"value" : null,
+				"displayName" : "Density",
+                "tooltip" : null,
+				"unit" : "density"
+				},
+		"viscosity" : {
+				"value" : null,
+				"displayName" : "Viscosity",
+                "tooltip" : null,
+				"unit" : "viscosity_dynamic"
+				}
+		}
+	},
+"EXPANSION" : {
+    "displayName" : "Expansion",
+    "CID" : "EXP",
+	"component" : {
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
+				"unit" : "length"
+				},
+		"contractExpandUpstream" : {
+				"value" : null,
+				"displayName" : "Upstream Area",
+                "tooltip" : null,
+				"unit" : "area"
+				},
+		"contractExpandDownstream" : {
+				"value" : null,
+				"displayName" : "Downstream Area",
+                "tooltip" : null,
+				"unit" : "area"
+				}
+		},
+    "fluid" : {
+        "density" : {
+                "value" : null,
+                "displayName" : "Density",
+                "tooltip" : null,
+                "unit" : "density"
+                },
+        "viscosity" : {
+                "value" : null,
+                "displayName" : "Viscosity",
+                "tooltip" : null,
+                "unit" : "viscosity_dynamic"
+                }
+        }
+},
+"CONTRACTION" : {
+    "CID" : "CNT",
+    "displayName" : "Contraction",
+	"component" : {
+		"massFlow" : {
+				"value" : null,
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
+				"unit" : "mass_flow"
+				},
+		"hydraulicDiameter" : {
+				"value" : null,
+				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
+				"unit" : "length"
+				},
+		"contractExpandUpstream" : {
+				"value" : null,
+				"displayName" : "Upstream Area",
+                "tooltip" : null,
+				"unit" : "area"
+				},
+		"contractExpandDownstream" : {
+				"value" : null,
+				"displayName" : "Downstream Area",
+                "tooltip" : null,
+				"unit" : "area"
+				},
+		"contractionAngledOrCurved" : {
+				"value" : null,
+				"displayName" : "Curved/Angled?",
+                "tooltip" : "Is the contraction angled or curved?",
+				"unit" : "boolean"
+				},
+		"angle" : {
+				"value" : null,
+				"displayName" : "Double angle of Contraction",
+                "tooltip" : "Justin I have no idea what this is",
+				"unit" : "angle"
+				},
+		"contractionLength" : {
+				"value" : null,
+				"displayName" : "Centerline Length",
+                "tooltip" : null,
+				"unit" : "length"
+				},
+		"downstreamRadiusOfCurvature" : {
+				"value" : null,
+				"displayName" : "Contraction Radius",
+                "tooltip" : "Contraction Radius of Curvature",
+				"unit" : "length"
+				}
+		},
+	"fluid" : {
+		"density" : {
+				"value" : null,
+				"displayName" : "Density",
+                "tooltip" : null,
+				"unit" : "density"
+				},
+		"viscosity" : {
+				"value" : null,
+				"displayName" : "Viscosity",
+                "tooltip" : null,
+				"unit" : "viscosity_dynamic"
+				}
+		}
+	}
+}

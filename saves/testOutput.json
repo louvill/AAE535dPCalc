@@ -1,0 +1,1 @@
+{"components": [{"IIN": "001", "CID": "LNE", "pressureDrop": {"value": 1222.573169939594, "displayName": "Pressure Drop Across Component 001", "unit": "Pa"}}], "pressureDropSum": {"value": 1222.573169939594, "displayName": "Total Pressure Drop", "unit": "Pa"}}

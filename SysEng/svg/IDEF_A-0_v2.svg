@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="IDEF_A-0.svg">
+   sodipodi:docname="IDEF_A-0_v2.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,18 +25,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="467.95634"
-     inkscape:cy="327.19674"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="485.67842"
+     inkscape:cy="402.3468"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="in"
-     inkscape:window-width="1378"
+     inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="-8"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
      inkscape:snap-global="false" />
   <metadata
      id="metadata5">
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -60,8 +60,8 @@
        id="rect1170"
        width="260.3205"
        height="184.14578"
-       x="9.539752"
-       y="91.002991" />
+       x="9.1617756"
+       y="91.380966" />
     <g
        id="g1164">
       <rect
@@ -95,8 +95,8 @@
        x="95.627968"
        y="148.07739" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 47.957118,165.84227 H 83.486881"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 47.957118,182.68025 H 83.486881"
        id="path1268"
        inkscape:connector-curvature="0" />
     <path
@@ -133,8 +133,8 @@
     <path
        inkscape:connector-curvature="0"
        id="path1284"
-       d="M 47.957118,191.23288 H 83.486881"
-       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none" />
+       d="M 47.579142,201.0783 H 83.108905"
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        inkscape:transform-center-x="1.7041621e-06"
        d="m 151.58305,138.95683 -2.84896,1.64485 v -3.2897 z"
@@ -159,8 +159,8 @@
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="path1288"
        sodipodi:sides="3"
-       sodipodi:cx="84.469974"
-       sodipodi:cy="165.95107"
+       sodipodi:cx="84.469971"
+       sodipodi:cy="182.78905"
        sodipodi:r1="1.8993068"
        sodipodi:r2="0.94965339"
        sodipodi:arg1="0"
@@ -168,7 +168,7 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 86.369277,165.95107 -2.84896,1.64484 v -3.28969 z"
+       d="m 86.369277,182.78905 -2.84896,1.64485 v -3.2897 z"
        inkscape:transform-center-x="-0.47482186" />
     <path
        inkscape:transform-center-y="-0.47482594"
@@ -190,7 +190,7 @@
        inkscape:transform-center-x="-4.0673225e-06" />
     <path
        inkscape:transform-center-x="-0.47482186"
-       d="m 86.63655,190.80714 -2.84896,1.64485 v -3.28969 z"
+       d="m 86.258575,201.40852 -2.84896,1.64485 v -3.28969 z"
        inkscape:randomized="0"
        inkscape:rounded="0"
        inkscape:flatsided="true"
@@ -198,8 +198,8 @@
        sodipodi:arg1="0"
        sodipodi:r2="0.94965339"
        sodipodi:r1="1.8993068"
-       sodipodi:cy="190.80714"
-       sodipodi:cx="84.737243"
+       sodipodi:cy="201.40852"
+       sodipodi:cx="84.359268"
        sodipodi:sides="3"
        id="path1294"
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
@@ -209,27 +209,27 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="49.444859"
-       y="162.83072"
+       y="179.6687"
        id="text1298"><tspan
          sodipodi:role="line"
          id="tspan1296"
          x="49.444859"
-         y="162.83072"
+         y="179.6687"
          style="stroke-width:0.26458332">Fluid Properties</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="65.043686"
-       y="184.47954"
+       x="65.610649"
+       y="194.51395"
        id="text1302"><tspan
          sodipodi:role="line"
          id="tspan1300"
-         x="65.043686"
-         y="184.47954"
+         x="65.610649"
+         y="194.51395"
          style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Component</tspan><tspan
          sodipodi:role="line"
-         x="65.043686"
-         y="189.77121"
+         x="65.610649"
+         y="199.80562"
          style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
          id="tspan1304">Properties</tspan></text>
     <text
@@ -335,5 +335,43 @@
          x="105.54461"
          y="283.21274"
          style="stroke-width:0.26458332">MAVeRCS Pressure Drop Calculator</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 47.09046,164.73059 H 82.620223"
+       id="path2305"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:transform-center-y="4.6115804e-06"
+       sodipodi:type="star"
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
+       id="path2307"
+       sodipodi:sides="3"
+       sodipodi:cx="83.870588"
+       sodipodi:cy="165.06083"
+       sodipodi:r1="1.8993068"
+       sodipodi:r2="0.94965339"
+       sodipodi:arg1="0"
+       sodipodi:arg2="1.0471976"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 85.769897,165.06084 -2.84896,1.64484 v -3.28969 z"
+       inkscape:transform-center-x="-0.47482186" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="65.686241"
+       y="158.2388"
+       id="text2311"><tspan
+         sodipodi:role="line"
+         id="tspan2309"
+         x="65.686241"
+         y="158.2388"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Component</tspan><tspan
+         sodipodi:role="line"
+         x="65.686241"
+         y="163.53047"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan2313">Name</tspan></text>
   </g>
 </svg>

@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="IDEF_A3.svg">
+   sodipodi:docname="IDEF_A3_v2.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="327.17129"
-     inkscape:cy="396.21421"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="473.72385"
+     inkscape:cy="312.2948"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -103,21 +103,21 @@
        y="283.77084"
        id="text2753"><tspan
          sodipodi:role="line"
-         id="tspan2751"
          x="221.49403"
          y="283.77084"
-         style="stroke-width:0.26458332">Version: 04022020</tspan></text>
+         style="stroke-width:0.26458332"
+         id="tspan862">Version: 04202020</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="104.32142"
-       y="283.39285"
+       x="117.41763"
+       y="283.66013"
        id="text2757"><tspan
          sodipodi:role="line"
          id="tspan2755"
-         x="104.32142"
-         y="283.39285"
-         style="stroke-width:0.26458332">MAVeRCS Pressure Drop Calculator</tspan></text>
+         x="117.41763"
+         y="283.66013"
+         style="stroke-width:0.26458332">Compute Pressure Drop</tspan></text>
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal"
        id="rect1376"
@@ -247,24 +247,29 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="95.760262"
-       y="164.94778"
+       x="96.027534"
+       y="160.40421"
        id="text2825"><tspan
          sodipodi:role="line"
          id="tspan2823"
-         x="95.760262"
-         y="164.94778"
-         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Construct</tspan><tspan
+         x="96.701393"
+         y="160.40421"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332">Construct </tspan><tspan
          sodipodi:role="line"
-         x="95.760262"
-         y="170.23946"
+         x="96.701393"
+         y="165.69588"
          style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan2827">Pressure Drop</tspan><tspan
+         id="tspan2827">Component by </tspan><tspan
          sodipodi:role="line"
-         x="95.760262"
-         y="175.53111"
+         x="96.027534"
+         y="170.98753"
          style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan2829">Array</tspan></text>
+         id="tspan886">Component</tspan><tspan
+         sodipodi:role="line"
+         x="96.027534"
+         y="176.27921"
+         style="text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan2829">Pressure Drop Array</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -372,5 +377,16 @@
          x="197.68156"
          y="234.06696"
          style="stroke-width:0.26458332">A32</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="107.17508"
+       y="166.30521"
+       id="text868"><tspan
+         sodipodi:role="line"
+         id="tspan866"
+         x="107.17508"
+         y="170.05072"
+         style="stroke-width:0.26458332" /></text>
   </g>
 </svg>

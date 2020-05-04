@@ -1,0 +1,101 @@
+{
+	"fileDisplayName": "Test Save",
+	"softwareVer": "0.1.0",
+	"componentList": [{
+		"IIN": "001",
+		"CID": "LNE",
+		"key": "LINE",
+		"displayName": "Line",
+		"parent": "null",
+		"child": "002",
+		"values": {
+			"component": {
+				"length": {
+					"displayName": "Length",
+					"value": "0.5",
+					"unit": "m"
+				},
+				"height": {
+					"displayName": "Height Change",
+					"value": "0.125",
+					"unit": "m"
+				},
+				"insideArea": {
+					"displayName": "Pipe Area",
+					"value": "0.1",
+					"unit": "m^2"
+				},
+				"massFlow": {
+					"displayName": "Mass Flow Rate",
+					"value": "0.2",
+					"unit": "kg/s"
+				},
+				"hydraulicDiameter": {
+					"displayName": "Hydraulic Diameter",
+					"value": "0.0356",
+					"unit": "m"
+				}
+			},
+			"fluid": {
+				"density": {
+					"value": "997",
+					"displayName": "Density",
+					"unit": "kg/m^3"
+				},
+				"viscosity": {
+					"value": "0.0000897",
+					"displayName": "Viscosity",
+					"unit": "Pa*s"
+				}
+			}
+		}
+	}, {
+		"IIN": "002",
+		"CID": "LNE",
+		"key": "LINE",
+		"displayName": "Line",
+		"parent": "001",
+		"child": "null",
+		"values": {
+			"component": {
+				"length": {
+					"displayName": "Length",
+					"value": "0.25",
+					"unit": "m"
+				},
+				"height": {
+					"displayName": "Height Change",
+					"value": "0.0625",
+					"unit": "m"
+				},
+				"insideArea": {
+					"displayName": "Pipe Area",
+					"value": "0.1",
+					"unit": "m^2"
+				},
+				"massFlow": {
+					"displayName": "Mass Flow Rate",
+					"value": "0.2",
+					"unit": "kg/s"
+				},
+				"hydraulicDiameter": {
+					"displayName": "Hydraulic Diameter",
+					"value": "0.0356",
+					"unit": "m"
+				}
+			},
+			"fluid": {
+				"density": {
+					"value": "997",
+					"displayName": "Density",
+					"unit": "kg/m^3"
+				},
+				"viscosity": {
+					"value": "0.0000897",
+					"displayName": "Viscosity",
+					"unit": "Pa*s"
+				}
+			}
+		}
+	}]
+}
