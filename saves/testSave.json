@@ -12,7 +12,7 @@
 				"length": {
 					"displayName": "Length",
 					"value": "0.5",
-					"unit": "m"
+					"unit": "in"
 				},
 				"height": {
 					"displayName": "Height Change",
