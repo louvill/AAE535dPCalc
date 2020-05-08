@@ -1,188 +1,224 @@
 {
-// Line Definition
 "LINE" : {
+    "CID" : "LNE",
+    "displayName" : "Line",
 	"component" : {
 		"length" : {
 			"value" : null,
-			"displayName" : "Length measured from the center line",
+			"displayName" : "Length",
+            "tooltip" : null,
 			"unit" : "length"
 			},
 		"height" : {
 			"value" : null,
 			"displayName" : "Height Change",
+            "tooltip" : null,
 			"unit" : "length"
 			},
 		"insideArea" : {
 			"value" : null,
-			"displayName" : "Inside Area of the Pipe",
+			"displayName" : "Pipe Area",
+            "tooltip" : null,
 			"unit" : "area"
 			},
 		"massFlow" : {
 			"value" : null,
-			"displayName" : "Fluid Mass Flow",
+			"displayName" : "Mass Flow Rate",
+            "tooltip" : null,
 			"unit" : "mass_flow"
 			},
 		"hydraulicDiameter" : {
 			"value" : null,
 			"displayName" : "Hydraulic Diameter",
+            "tooltip" : null,
 			"unit" : "length"
 			}
 		},
 	"fluid" : {
 		"density" : {
 			"value" : null,
-			"displayName" : "Fluid Density",
+			"displayName" : "Density",
+            "tooltip" : null,
 			"unit" : "density"
 			},
 		"viscosity" : {
 			"value" : null,
-			"displayName" : "Fluid Viscosity",
+			"displayName" : "Viscosity",
+            "tooltip" : null,
 			"unit" : "viscosity_dynamic"
 			}
 		}
 	},
-// Bend Definition
 "BEND" : {
+    "CID" : "BND",
+    "displayName" : "Bend",
 	"component" : {
 		"length" : {
 				"value" : null,
-				"displayName" : "Length measured from the center line",
+                "displayName" : "Length",
+				"tooltip" : null,
 				"unit" : "length"
 				},
 		"height" : {
 				"value" : null,
 				"displayName" : "Height Change",
+                "tooltip" : null,
 				"unit" : "length"
 				},
 		"insideArea" : {
 				"value" : null,
-				"displayName" : "Inside Area of the Pipe",
+          		"displayName" : "Pipe Area",
+                "tooltip" : null,
 				"unit" : "area"
 				},
 		"massFlow" : {
 				"value" : null,
-				"displayName" : "Fluid Mass Flow",
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
 				"unit" : "mass_flow"
 				},
 		"hydraulicDiameter" : {
 				"value" : null,
 				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
 				"unit" : "length"
 				},
 		"bendRadius" : {
 				"value" : null,
-				"displayName" : "Radius of Curvature of the Bend",
-				"unit" : "distance"
+				"displayName" : "Bend Radius",
+                "tooltip" : "Along centerline",
+				"unit" : "length"
 				},
 		"bendAngle" : {
 				"value" : null,
-				"displayName" : "Angle of the Bend",
+				"displayName" : "Bend Angle",
+                "tooltip" : null,
 				"unit" : "angle"
-				},
+				}
 		},
 	"fluid" : {
 		"density" : {
 				"value" : null,
-				"displayName" : "Fluid Density",
+				"displayName" : "Density",
+                "tooltip" : null,
 				"unit" : "density"
 				},
 		"viscosity" : {
 				"value" : null,
-				"displayName" : "Fluid Viscosity",
+				"displayName" : "Viscosity",
+                "tooltip" : null,
 				"unit" : "viscosity_dynamic"
 				}
 		}
 	},
-// Sudden Expansion Definition
 "EXPANSION" : {
+    "displayName" : "Expansion",
+    "CID" : "EXP",
 	"component" : {
 		"massFlow" : {
 				"value" : null,
-				"displayName" : "Fluid Mass Flow",
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
 				"unit" : "mass_flow"
 				},
 		"hydraulicDiameter" : {
 				"value" : null,
 				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
 				"unit" : "length"
 				},
 		"contractExpandUpstream" : {
 				"value" : null,
-				"displayName" : "Upstrem Area",
+				"displayName" : "Upstream Area",
+                "tooltip" : null,
 				"unit" : "area"
 				},
 		"contractExpandDownstream" : {
 				"value" : null,
 				"displayName" : "Downstream Area",
+                "tooltip" : null,
 				"unit" : "area"
 				}
 		},
-"fluid" : {
-	"density" : {
-			"value" : null,
-			"displayName" : "Fluid Density",
-			"unit" : "density"
-			},
-	"viscosity" : {
-			"value" : null,
-			"displayName" : "Fluid Viscosity",
-			"unit" : "viscosity_dynamic"
-			}
-	}
+    "fluid" : {
+        "density" : {
+                "value" : null,
+                "displayName" : "Density",
+                "tooltip" : null,
+                "unit" : "density"
+                },
+        "viscosity" : {
+                "value" : null,
+                "displayName" : "Viscosity",
+                "tooltip" : null,
+                "unit" : "viscosity_dynamic"
+                }
+        }
 },
-// Contraction Definition
 "CONTRACTION" : {
+    "CID" : "CNT",
+    "displayName" : "Contraction",
 	"component" : {
 		"massFlow" : {
 				"value" : null,
-				"displayName" : "Fluid Mass Flow",
+				"displayName" : "Mass Flow Rate",
+                "tooltip" : null,
 				"unit" : "mass_flow"
 				},
 		"hydraulicDiameter" : {
 				"value" : null,
 				"displayName" : "Hydraulic Diameter",
+                "tooltip" : null,
 				"unit" : "length"
 				},
 		"contractExpandUpstream" : {
 				"value" : null,
-				"displayName" : "Upstrem Area",
+				"displayName" : "Upstream Area",
+                "tooltip" : null,
 				"unit" : "area"
 				},
 		"contractExpandDownstream" : {
 				"value" : null,
 				"displayName" : "Downstream Area",
+                "tooltip" : null,
 				"unit" : "area"
 				},
 		"contractionAngledOrCurved" : {
 				"value" : null,
-				"displayName" : "Is the contraction angled or curved?",
-				"unit" : "string"
+				"displayName" : "Curved/Angled?",
+                "tooltip" : "Is the contraction angled or curved?",
+				"unit" : "boolean"
 				},
 		"angle" : {
 				"value" : null,
 				"displayName" : "Double angle of Contraction",
+                "tooltip" : "Justin I have no idea what this is",
 				"unit" : "angle"
 				},
 		"contractionLength" : {
 				"value" : null,
-				"displayName" : "Centerline Length of Contraction",
+				"displayName" : "Centerline Length",
+                "tooltip" : null,
 				"unit" : "length"
 				},
 		"downstreamRadiusOfCurvature" : {
 				"value" : null,
-				"displayName" : "Contraction Radius of Curvature",
+				"displayName" : "Contraction Radius",
+                "tooltip" : "Contraction Radius of Curvature",
 				"unit" : "length"
 				}
 		},
 	"fluid" : {
 		"density" : {
 				"value" : null,
-				"displayName" : "Fluid Density",
+				"displayName" : "Density",
+                "tooltip" : null,
 				"unit" : "density"
 				},
 		"viscosity" : {
 				"value" : null,
-				"displayName" : "Fluid Viscosity",
+				"displayName" : "Viscosity",
+                "tooltip" : null,
 				"unit" : "viscosity_dynamic"
 				}
 		}
